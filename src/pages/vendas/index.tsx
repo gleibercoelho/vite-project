@@ -47,7 +47,7 @@ export function Vendas() {
                             <td>Gleiber Coelho</td>
                             <td>R$ 500,00</td>
                             <td>Crédito</td>
-                            <td>icon</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>13/03/2023</td>
@@ -55,7 +55,7 @@ export function Vendas() {
                             <td>Gleiber Coelho</td>
                             <td>R$ 500,00</td>
                             <td>Crédito</td>
-                            <td>icon</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>13/03/2023</td>
@@ -63,7 +63,7 @@ export function Vendas() {
                             <td>Gleiber Coelho</td>
                             <td>R$ 500,00</td>
                             <td>Crédito</td>
-                            <td>icon</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>13/03/2023</td>
@@ -71,7 +71,7 @@ export function Vendas() {
                             <td>Gleiber Coelho</td>
                             <td>R$ 500,00</td>
                             <td>Crédito</td>
-                            <td>icon</td>
+                            <td></td>
                         </tr>
                     </table>
                 </ContentTitleVendas>
