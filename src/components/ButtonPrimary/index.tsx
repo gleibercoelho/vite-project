@@ -1,7 +1,7 @@
 import { Button } from "./style";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    title: string;
+    title: any;
 }
 
 export const ButtonPrimary = (props: IButtonProps) => {

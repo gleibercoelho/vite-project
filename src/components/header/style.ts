@@ -42,5 +42,6 @@ export const ContentImageUser = styled.div`
         width: 60px;
         height: 60px;
         border-radius: 100%;
+        margin-right: 20px
     }
 `;
