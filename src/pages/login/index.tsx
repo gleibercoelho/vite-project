@@ -8,13 +8,15 @@ import * as z from "zod";
 import {useForm} from 'react-hook-form';
 import { loginFormSchema } from './schema';
 import { zodResolver } from "@hookform/resolvers/zod"
+import { login } from '../../services/login.service';
 
 type LoginFormInputs = z.infer<typeof loginFormSchema>
 
 export function Login() {
     const navigate = useNavigate();
 
-   /*  const [emailUser, setEmailUser] =  useState('');
+   /* metodo 1   
+   const [emailUser, setEmailUser] =  useState('');
     const [passwordUser, setPasswordUser] =  useState(''); */
 
 
@@ -22,7 +24,8 @@ export function Login() {
         resolver: zodResolver(loginFormSchema)
     });
 
-    /* function handleSubmitLogin(event: FormEvent){
+    /* metodo 1 
+     function handleSubmitLogin(event: FormEvent){
         event.preventDefault();
         console.log('funcionou');
         if(emailUser.length === 0 || passwordUser.length === 0){
@@ -38,11 +41,20 @@ export function Login() {
         }
     };
    */
- async function handleSubmitLogin(data: LoginFormInputs){
-    await new Promise ((resolve) => setTimeout(resolve, 2000))
-    localStorage.setItem('@userInformationAccount', JSON.stringify({email: data.email}));
-            navigate('/');
- console.log(data)
+ /* 2 async */ function handleSubmitLogin(data: LoginFormInputs){
+    login()
+    .then((response) => {
+        console.log(response);
+        /* localStorage.setItem('@userInformationAccount', JSON.stringify({email: data.email})); */
+            /*3 navigate('/'); */
+    })
+    .catch((error) => {
+        console.log(error);
+    } )
+    /* metodo 2 
+    await new Promise ((resolve) => setTimeout(resolve, 2000)) */
+    
+/* 2 console.log(data) */
 };
 
     return (

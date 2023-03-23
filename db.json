@@ -1,0 +1,30 @@
+{
+    "login":{
+        "name": "Gleiber Coelho",
+        "imageUser": "https://github.com/gleibercoelho.png",
+        "emailUser": "gleiberfelipe@hotmail.com"
+    },
+
+    "sales": [
+        {
+            "id": 331,
+            "create_at": "Sun Mar 23 2023 17:24:29 GMT-0300",
+            "product": "Motor",
+            "product_id": 123,
+            "seller_id": 0,
+            "value": "R$ 400,00",
+            "payment_form": "credit"
+        }
+    ],
+
+    "sallers": [
+        {
+            "id": 0,
+            "name": "Caique Alves"
+        },
+        {
+            "id": 1,
+            "name": "Giovana Hozorio"
+        }
+    ]
+}
