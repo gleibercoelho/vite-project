@@ -9,11 +9,15 @@ import {useForm} from 'react-hook-form';
 import { loginFormSchema } from './schema';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { login } from '../../services/login.service';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { setUser } from '../../store/modules/user/reducer';
 
 type LoginFormInputs = z.infer<typeof loginFormSchema>
 
 export function Login() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
    /* metodo 1   
    const [emailUser, setEmailUser] =  useState('');
@@ -45,8 +49,9 @@ export function Login() {
     login()
     .then((response) => {
         console.log(response);
+        dispatch(setUser(response.data))
         /* localStorage.setItem('@userInformationAccount', JSON.stringify({email: data.email})); */
-            /*3 navigate('/'); */
+            navigate('/');
     })
     .catch((error) => {
         console.log(error);

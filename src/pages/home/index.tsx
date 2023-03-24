@@ -9,6 +9,7 @@ import { cardsHome } from "../../components/utils/DataCards";
 
 export function Home() {
 
+    /* metodo 2 
     const navigate = useNavigate();
     useEffect(() =>{
         const infoUserStorage = localStorage.getItem('@userInformationAccount');
@@ -17,7 +18,7 @@ export function Home() {
         }else {
             navigate('/login');
         }
-    }, [])
+    }, []) */
     return (
         <>
         <Header/>
