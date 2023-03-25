@@ -12,12 +12,14 @@ import { login } from '../../services/login.service';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '../../store/modules/user/reducer';
+import toast, { Toaster } from "react-hot-toast";
 
 type LoginFormInputs = z.infer<typeof loginFormSchema>
 
 export function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false)
 
    /* metodo 1   
    const [emailUser, setEmailUser] =  useState('');
@@ -45,16 +47,18 @@ export function Login() {
         }
     };
    */
- /* 2 async */ function handleSubmitLogin(data: LoginFormInputs){
+  async function handleSubmitLogin(data: LoginFormInputs){
+    setLoading(true)
     login()
     .then((response) => {
-        console.log(response);
         dispatch(setUser(response.data))
-        /* localStorage.setItem('@userInformationAccount', JSON.stringify({email: data.email})); */
+        localStorage.setItem('@userInformationAccount', JSON.stringify(response.data));
             navigate('/');
     })
     .catch((error) => {
+        toast.error("this didn't work.")
         console.log(error);
+        setLoading(false)
     } )
     /* metodo 2 
     await new Promise ((resolve) => setTimeout(resolve, 2000)) */
@@ -84,12 +88,16 @@ export function Login() {
 
                     </ContainerInput>
                     <ContainerButtons>
-                        <ButtonPrimary type="submit" title='Entrar' disabled={isSubmitting} />
+                        <ButtonPrimary type="submit" title='Entrar' disabled={isSubmitting || loading} isLoading={loading}/>
                         <p>Primeira vez aqui?<a href="#"> Criar uma conta</a></p>
 
                     </ContainerButtons>
                 </FormLogin>
             </FormColumn>
+            <Toaster
+            position="top-right"
+            reverseOrder={false}
+            />
         </ContainerLogin>
     )
 }
