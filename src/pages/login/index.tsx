@@ -56,7 +56,7 @@ export function Login() {
             navigate('/');
     })
     .catch((error) => {
-        toast.error("this didn't work.")
+        toast.error("Algo deu errado. Tente logar novamente.")
         console.log(error);
         setLoading(false)
     } )

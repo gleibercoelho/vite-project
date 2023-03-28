@@ -2,9 +2,14 @@ import { NavLink } from "react-router-dom";
 import { House, Package, CurrencyCircleDollar } from "@phosphor-icons/react";
 import { HeaderNav, ContentLinks, ContentImageUser, LogoIManager } from './style';
 import IconPng from '../../assets/icons/IconPng.png';
+import iconUserPng from "../../assets/icons/IconuserPng.png"
+
+type IHeaderProps = {
+    urlImage: string | undefined;
+}
 
 
-export const Header =  () => {
+export const Header =  ({urlImage} : IHeaderProps) => {
     return(
         <HeaderNav>
             <ContentLinks>
@@ -25,7 +30,7 @@ export const Header =  () => {
                 </nav>
             </ContentLinks>
             <ContentImageUser>
-                <img src="https://github.com/gleibercoelho.png" alt="" />
+                <img src={urlImage ? urlImage : iconUserPng} alt="foto do usuário" />
             </ContentImageUser>
         </HeaderNav>
     )
