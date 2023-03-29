@@ -5,6 +5,9 @@ import { Cabecalho } from "../../components/Cabecalho/style";
 import { ButtonPrimary } from "../../components/ButtonPrimary";
 import {ContainerEstoque, ContentTitleEstoque} from './style';
 import { Trash, Pencil } from "@phosphor-icons/react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { IUserInfo, IUserReducer } from "../../components/utils/types";
 
 
 
@@ -12,19 +15,31 @@ import { Trash, Pencil } from "@phosphor-icons/react";
 export function Estoque() {
 
     const navigate = useNavigate();
+    const [userInfo, setUserInfo] = useState<IUserInfo>()
+    const userInfos = useSelector((state: IUserReducer) => state.userReduce)
+    console.log(userInfos);
+
+    function splitName(name: string | undefined) {
+        if(name) {const nameFormated = name.split(' ')
+        return nameFormated[0];}
+        else {
+            return "";
+        }
+        
+    }
     useEffect(() =>{
         const infoUserStorage = localStorage.getItem('@userInformationAccount');
         if (infoUserStorage) {
-            console.log(infoUserStorage)
+            setUserInfo(JSON.parse(infoUserStorage))
         }else {
             navigate('/login');
         }
     }, [])
     return (
         <>
-            <Header />
+            <Header urlImage={userInfo?.imageUser} />
             <Cabecalho>
-                <h2>Olá, Gleiber!</h2> <span> Gerencie o estoque ou acadastre um novo produto</span>
+                <h2>Olá, {splitName(userInfo?.name)}</h2> <span> Gerencie o estoque ou acadastre um novo produto</span>
                 <ButtonPrimary title={"Novo produto"}>
                     <button>Nova venda</button>
                 </ButtonPrimary>

@@ -7,25 +7,41 @@ import { Header } from "../../components/header";
 import { Plus, Rows } from "@phosphor-icons/react";
 import { ContentBodyVendas, ContainerVendas, ContentTitleVendas } from "./style";
 import { Tabela } from "../../components/Tabela";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { IUserInfo, IUserReducer } from "../../components/utils/types";
 
 
 
 export function Vendas() {
 
     const navigate = useNavigate();
+    const [userInfo, setUserInfo] = useState<IUserInfo>()
+    const userInfos = useSelector((state: IUserReducer) => state.userReduce)
+    console.log(userInfos);
+
+    function splitName(name: string | undefined) {
+        if(name) {const nameFormated = name.split(' ')
+        return nameFormated[0];}
+        else {
+            return "";
+        }
+        
+    }
+
     useEffect(() => {
         const infoUserStorage = localStorage.getItem('@userInformationAccount');
         if (infoUserStorage) {
-            console.log(infoUserStorage)
+            setUserInfo(JSON.parse(infoUserStorage))
         } else {
             navigate('/login');
         }
     }, [])
     return (
         <>
-            <Header />
+            <Header urlImage={userInfo?.imageUser} />
             <Cabecalho>
-                <h2>Olá, Gleiber!</h2> <span> Gerencie as vendas abaixo ou abra uma nova</span>
+                <h2>Olá, {splitName(userInfo?.name)}</h2> <span> Gerencie as vendas abaixo ou abra uma nova</span>
                 <ButtonPrimary title={"Nova venda"}>
                     <button>Nova venda</button>
                 </ButtonPrimary>
