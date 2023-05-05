@@ -16,7 +16,7 @@ Este foi meu primeiro projeto desenvolvido com React e Typescript. Neste projeto
 
  
 
-## tags
+## Tags
 
 
 
@@ -25,7 +25,7 @@ Este foi meu primeiro projeto desenvolvido com React e Typescript. Neste projeto
 [![top language](https://img.shields.io/github/languages/top/gleibercoelho/vite-project)]
 
 
-## install
+## Install
 
 Install ecommerce com npm on main page
 
