@@ -1,5 +1,7 @@
 # Mech-Service
 
+![App Screenshot](https://github.com/gleibercoelho/vite-project/blob/master/public/screenshots/login.jpeg)
+
 - en-US
 This was my first project developed with React and Typescript. In this project, a system simulation of a parts store was developed, which monitors sales and parts inventory.
 
@@ -82,14 +84,21 @@ Este foi meu primeiro projeto densenvolvido em React. Aqui eu aprendi como funci
 - Login
 ![App Screenshot](https://github.com/gleibercoelho/vite-project/blob/master/public/screenshots/login.jpeg)
 
+
+
 - Home
 ![App Screenshot](https://github.com/gleibercoelho/vite-project/blob/master/public/screenshots/home.jpeg)
+
+
 
 - Sales
 ![App Screenshot](https://github.com/gleibercoelho/vite-project/blob/master/public/screenshots/sales.jpeg)
 
+
+
 - Stock
 ![App Screenshot](https://github.com/gleibercoelho/vite-project/blob/master/public/screenshots/stock.jpeg)
+
 
 
 ## Feedback
